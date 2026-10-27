@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfcfb">
+  <meta name="description" content="Fan Zhang and Michael Gienger explore how Codex connects real robot observations, MuJoCo simulation, Blender rendering and policy learning.">
+  <meta name="author" content="Fan Zhang, Michael Gienger">
+  <link rel="canonical" href="https://fan6zh.github.io/agenticrobot/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fan6zh.github.io/agenticrobot/">
+  <meta property="og:title" content="Agents for robot learning">
+  <meta property="og:description" content="From real observations to simulation, rendering and robot learning. An interactive research workflow by Fan Zhang and Michael Gienger.">
+  <meta property="og:image" content="https://fan6zh.github.io/agenticrobot/assets/images/blender-lab.jpg">
+  <meta property="og:image:alt" content="Blender rendering of the SO-101 robot, vial and rack workspace">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agents for robot learning">
+  <meta name="twitter:description" content="An interactive workflow from real observations to simulation, rendering and robot learning.">
+  <meta name="twitter:image" content="https://fan6zh.github.io/agenticrobot/assets/images/blender-lab.jpg">
+  <title>Agents for robot learning · Fan Zhang &amp; Michael Gienger</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1.5 7M4 4v6h6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-fullscreen" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></symbol>
+    <symbol id="i-agent" viewBox="0 0 32 32"><path d="m12 9-7 7 7 7m8-14 7 7-7 7"/><circle cx="16" cy="16" r="1.4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.7 7.3L22 12l-7.3 2.7L12 22l-2.7-7.3L2 12l7.3-2.7Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#workflow">Skip to the workflow</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#top" aria-label="Agents for robot learning, home">
+      <span class="brand-mark"><svg><use href="#i-agent"/></svg></span>
+      <span>Agents for robot learning</span>
+    </a>
+    <nav class="site-nav" aria-label="Page navigation">
+      <a href="#workflow">Explore</a>
+      <button type="button" class="text-button" data-open-film>Watch the film <svg class="icon"><use href="#i-play"/></svg></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="eyebrow"><span class="status-dot"></span>From real observations to learned behavior</div>
+      <h1 id="hero-title">Agents for <span>robot learning.</span></h1>
+      <p class="hero-description">A coding agent connects the tools. Real observations become simulation, rendered data and experiments in robot learning.</p>
+      <p class="authors"><a href="https://fan6zh.github.io/">Fan Zhang</a> <span aria-hidden="true">&amp;</span> Michael Gienger</p>
+      <p class="affiliation">Honda Research Institute Europe</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#workflow">Explore the workflow <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <button type="button" class="button button-secondary" data-open-film><svg class="icon"><use href="#i-play"/></svg> The 50-second story</button>
+      </div>
+    </section>
+
+    <section class="workflow wrap" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">One task. A connected workflow.</p><h2 id="workflow-title">Follow the experiment.</h2></div>
+        <p>Choose a step to see what happens.</p>
+      </div>
+
+      <div class="workflow-tabs" role="tablist" aria-label="Research workflow">
+        <button class="step-tab" type="button" id="tab-observe" role="tab" aria-selected="true" aria-controls="panel-observe" data-step="observe">
+          <span class="step-image"><img src="assets/images/real-external.jpg" alt="" width="640" height="480"><span class="step-index">01</span></span><span class="step-caption"><b>Observe</b><span>The real task</span></span>
+        </button>
+        <button class="step-tab" type="button" id="tab-reconstruct" role="tab" aria-selected="false" aria-controls="panel-reconstruct" tabindex="-1" data-step="reconstruct">
+          <span class="step-image"><img src="assets/images/mujoco-external.jpg" alt="" width="640" height="480"><span class="step-index">02</span></span><span class="step-caption"><b>Reconstruct</b><span>Real to simulation</span></span>
+        </button>
+        <button class="step-tab" type="button" id="tab-render" role="tab" aria-selected="false" aria-controls="panel-render" tabindex="-1" data-step="render">
+          <span class="step-image"><img src="assets/images/blender-lab.jpg" alt="" width="1280" height="720"><span class="step-index">03</span></span><span class="step-caption"><b>Render</b><span>Match the appearance</span></span>
+        </button>
+        <button class="step-tab" type="button" id="tab-simulation" role="tab" aria-selected="false" aria-controls="panel-simulation" tabindex="-1" data-step="simulation">
+          <span class="step-image"><img src="assets/images/code-external.jpg" alt="" width="640" height="480"><span class="step-index">04</span></span><span class="step-caption"><b>Develop policies</b><span>Code and reinforcement learning</span></span>
+        </button>
+        <button class="step-tab" type="button" id="tab-adapt" role="tab" aria-selected="false" aria-controls="panel-adapt" tabindex="-1" data-step="adapt">
+          <span class="step-image"><img src="assets/images/real-external.jpg" alt="" width="640" height="480"><span class="step-index">05</span></span><span class="step-caption"><b>Adapt &amp; predict</b><span>Real data and future motion</span></span>
+        </button>
+      </div>
+
+      <div class="workflow-board" id="workflow-board">
+        <article class="stage-panel" id="panel-observe" role="tabpanel" aria-labelledby="tab-observe" data-panel="observe">
+          <div class="stage-heading"><div><p class="eyebrow">Start in the real world</p><h3>A robot, a vial and a rack.</h3><p>The real scene and its two camera views define the task we want to learn.</p></div><span class="stage-badge">Real observations</span></div>
+          <div class="stage-view" data-view="observe">
+            <div class="camera-layout">
+              <figure class="media-card"><video src="assets/media/real-external.mp4" poster="assets/images/real-external.jpg" muted playsinline preload="metadata" aria-label="Recorded real task, external camera"></video><figcaption><span class="camera-dot"></span>External camera</figcaption></figure>
+              <div class="camera-side"><figure class="media-card"><video src="assets/media/real-wrist.mp4" poster="assets/images/real-wrist.jpg" muted playsinline preload="metadata" aria-label="Recorded real task, wrist camera with blurred background"></video><figcaption><span class="camera-dot"></span>Wrist camera</figcaption></figure><div class="task-prompt"><span class="eyebrow">The task</span><p>“Pick up the vial and place it on the rack.”</p><svg class="prompt-spark"><use href="#i-spark"/></svg></div></div>
+            </div>
+          </div>
+          <div class="agent-note"><span class="agent-avatar"><svg><use href="#i-agent"/></svg></span><div><b>Codex inspects</b><p>Reads the recorded views, identifies the scene and helps turn the task into an experiment.</p></div></div>
+        </article>
+
+        <article class="stage-panel" id="panel-reconstruct" role="tabpanel" aria-labelledby="tab-reconstruct" data-panel="reconstruct" hidden>
+          <div class="stage-heading"><div><p class="eyebrow">Real → simulation</p><h3>Build a world we can test.</h3><p>Translate the observed workspace into a MuJoCo scene, then inspect the robot and task in motion.</p></div><span class="stage-badge">MuJoCo</span></div>
+          <div class="stage-view" data-view="reconstruct">
+            <div class="reconstruction-layout">
+              <figure class="media-card"><video data-src="assets/media/real-external.mp4" poster="assets/images/real-external.jpg" muted playsinline preload="none" aria-label="Real observations used to reconstruct the scene"></video><figcaption>Real observations</figcaption></figure>
+              <div class="agent-bridge" aria-label="Codex constructs the simulation"><span class="bridge-line"></span><span class="large-agent"><svg><use href="#i-agent"/></svg></span><b>Codex</b><span class="bridge-line"></span></div>
+              <figure class="media-card"><video data-src="assets/media/mujoco-external.mp4" poster="assets/images/mujoco-external.jpg" muted playsinline preload="none" aria-label="Reconstructed MuJoCo scene in motion"></video><figcaption>Constructed simulation</figcaption></figure>
+            </div>
+          </div>
+          <div class="agent-note"><span class="agent-avatar"><svg><use href="#i-agent"/></svg></span><div><b>Codex constructs</b><p>Builds the scene, sets up robot geometry and cameras, and checks simulated task motion.</p></div></div>
+        </article>
+
+        <article class="stage-panel" id="panel-render" role="tabpanel" aria-labelledby="tab-render" data-panel="render" hidden>
+          <div class="stage-heading"><div><p class="eyebrow">Simulation → appearance</p><h3>Make the scene look familiar.</h3><p>Keep the motion. Change the materials, lighting and camera appearance.</p></div><span class="stage-badge">Blender</span></div>
+          <div class="section-tabs" role="tablist" aria-label="Rendering views">
+            <button type="button" role="tab" id="tab-comparison" aria-selected="true" aria-controls="view-comparison" data-subview="comparison">Match the appearance</button>
+            <button type="button" role="tab" id="tab-lab" aria-selected="false" aria-controls="view-lab" tabindex="-1" data-subview="lab">Blender render</button>
+          </div>
+          <div class="stage-view" id="view-comparison" role="tabpanel" aria-labelledby="tab-comparison" data-view="comparison">
+            <div class="camera-layout comparison-layout" id="appearance-comparison" style="--reveal: 50%">
+              <figure class="media-card"><div class="comparison-frame"><video data-src="assets/media/mujoco-external.mp4" poster="assets/images/mujoco-external.jpg" muted playsinline preload="none" aria-label="MuJoCo external view"></video><div class="render-overlay"><video data-src="assets/media/rendered-external.mp4" poster="assets/images/rendered-external.jpg" muted playsinline preload="none" aria-label="Blender external view of the same motion"></video></div><span class="compare-label compare-left">Blender</span><span class="compare-label compare-right">MuJoCo</span><div class="compare-handle" aria-hidden="true"><span>‹ ›</span></div><input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="Compare MuJoCo and Blender appearance"></div><figcaption>Same trajectory · external camera</figcaption></figure>
+              <div class="camera-side"><figure class="media-card"><div class="comparison-frame"><video data-src="assets/media/mujoco-wrist.mp4" poster="assets/images/mujoco-wrist.jpg" muted playsinline preload="none" aria-label="MuJoCo wrist view"></video><div class="render-overlay"><video data-src="assets/media/rendered-wrist.mp4" poster="assets/images/rendered-wrist.jpg" muted playsinline preload="none" aria-label="Blender wrist view of the same motion"></video></div><span class="compare-label compare-left">Blender</span><span class="compare-label compare-right">MuJoCo</span><div class="compare-handle compare-handle-small" aria-hidden="true"></div></div><figcaption>Same trajectory · wrist camera</figcaption></figure><div class="comparison-guide"><p>Drag the divider to compare both cameras.</p><button class="button button-secondary button-small" type="button" id="animate-comparison"><svg class="icon"><use href="#i-play"/></svg>Animate the change</button></div></div>
+            </div>
+          </div>
+          <div class="stage-view" id="view-lab" role="tabpanel" aria-labelledby="tab-lab" data-view="lab" hidden><figure class="media-card cinema"><video data-src="assets/media/blender-lab.mp4" poster="assets/images/blender-lab.jpg" muted playsinline preload="none" aria-label="Full Blender laboratory render of the pick-and-place task"></video><figcaption>Blender · the complete pick-and-place sequence</figcaption></figure></div>
+          <div class="agent-note"><span class="agent-avatar"><svg><use href="#i-agent"/></svg></span><div><b>Codex renders</b><p>Builds materials, lighting and camera views, then renders saved simulated trajectories.</p></div></div>
+        </article>
+
+        <article class="stage-panel" id="panel-simulation" role="tabpanel" aria-labelledby="tab-simulation" data-panel="simulation" hidden>
+          <div class="stage-heading"><div><p class="eyebrow">A place to develop behavior</p><h3>Give the simulator a task.</h3><p>Try executable control code and a policy that learns from reward.</p></div><span class="stage-badge">Simulation</span></div>
+          <div class="section-tabs" role="tablist" aria-label="Simulation policies">
+            <button type="button" role="tab" id="tab-code" aria-selected="true" aria-controls="view-code" data-subview="code">Code as Policy</button>
+            <button type="button" role="tab" id="tab-rl" aria-selected="false" aria-controls="view-rl" tabindex="-1" data-subview="rl">Reinforcement learning</button>
+          </div>
+          <div class="stage-view" id="view-code" role="tabpanel" aria-labelledby="tab-code" data-view="code">
+            <div class="camera-layout"><figure class="media-card"><video data-src="assets/media/code-external.mp4" poster="assets/images/code-external.jpg" muted playsinline preload="none" aria-label="Scripted pick-and-place policy with Blender observations"></video><figcaption>Code as Policy · Blender observations</figcaption></figure><div class="camera-side"><figure class="media-card"><video data-src="assets/media/code-wrist.mp4" poster="assets/images/code-wrist.jpg" muted playsinline preload="none" aria-label="Wrist view of the scripted policy"></video><figcaption>Wrist camera</figcaption></figure><div class="task-prompt"><span class="eyebrow">From the prompt</span><p>“Pick up the vial and place it on the rack.”</p><svg class="prompt-spark"><use href="#i-code"/></svg></div></div></div>
+          </div>
+          <div class="stage-view" id="view-rl" role="tabpanel" aria-labelledby="tab-rl" data-view="rl" hidden>
+            <div class="camera-layout"><figure class="media-card"><video data-src="assets/media/rl-external.mp4" poster="assets/images/rl-external.jpg" muted playsinline preload="none" aria-label="Image-based SAC policy executing the task in MuJoCo"></video><figcaption>Image-based SAC · learned in simulation</figcaption></figure><div class="camera-side"><figure class="media-card"><video data-src="assets/media/rl-wrist.mp4" poster="assets/images/rl-wrist.jpg" muted playsinline preload="none" aria-label="Wrist view of the image-based SAC rollout"></video><figcaption>Wrist camera</figcaption></figure><div class="task-prompt"><span class="eyebrow">Learn from reward</span><p>Camera images and robot state. A policy trained from scratch.</p><svg class="prompt-spark"><use href="#i-spark"/></svg></div></div></div>
+          </div>
+          <div class="agent-note"><span class="agent-avatar"><svg><use href="#i-agent"/></svg></span><div><b id="policy-agent-title">Codex develops control code</b><p id="policy-agent-copy">Writes and tests the task controller, inspects the trajectory and prepares rendered observations.</p></div></div>
+        </article>
+
+        <article class="stage-panel" id="panel-adapt" role="tabpanel" aria-labelledby="tab-adapt" data-panel="adapt" hidden>
+          <div class="stage-heading"><div><p class="eyebrow">Data → adaptation and prediction</p><h3>Bring the observations into learning.</h3><p>Adapt a foundation policy and explore a prototype for predicting future motion.</p></div><span class="stage-badge">Real data</span></div>
+          <div class="section-tabs" role="tablist" aria-label="Learning with observations">
+            <button type="button" role="tab" id="tab-finetune" aria-selected="true" aria-controls="view-finetune" data-subview="finetune">Fine-tune π0.5</button>
+            <button type="button" role="tab" id="tab-world" aria-selected="false" aria-controls="view-world" tabindex="-1" data-subview="world">World-action model</button>
+          </div>
+          <div class="stage-view" id="view-finetune" role="tabpanel" aria-labelledby="tab-finetune" data-view="finetune">
+            <div class="data-layout"><figure class="media-card"><video data-src="assets/media/code-external.mp4" poster="assets/images/code-external.jpg" muted playsinline preload="none" aria-label="Rendered demonstration data for policy fine-tuning"></video><figcaption>Rendered observations</figcaption></figure><figure class="media-card"><video data-src="assets/media/real-external.mp4" poster="assets/images/real-external.jpg" muted playsinline preload="none" aria-label="Real demonstration data for policy fine-tuning"></video><figcaption>Real demonstrations</figcaption></figure></div>
+            <div class="policy-adaptation"><div class="adaptation-path" aria-hidden="true"></div><span class="policy-node">π0.5</span><div><b>Adapt the foundation policy</b><p>Explore fine-tuning with rendered data and with real demonstrations.</p></div></div>
+          </div>
+          <div class="stage-view" id="view-world" role="tabpanel" aria-labelledby="tab-world" data-view="world" hidden>
+            <div class="data-layout world-videos"><figure class="media-card"><video data-src="assets/media/world-current.mp4" poster="assets/images/world-current.jpg" muted playsinline preload="none" aria-label="Current observations supplied to the visual prediction prototype"></video><figcaption>Current observation</figcaption></figure><figure class="media-card predicted-card"><video data-src="assets/media/world-prediction.mp4" poster="assets/images/world-prediction.jpg" muted playsinline preload="none" aria-label="Full saved generated-future video"></video><figcaption>Predicted video</figcaption></figure></div>
+            <div class="future-heading"><b>Future keyframes</b><span>A visual prediction prototype</span></div>
+            <div class="future-keyframes" id="future-keyframes"><figure><img src="assets/images/world-0-future-0.jpg" alt="Early predicted future frame" width="640" height="480" data-future="0"><figcaption>Near future</figcaption></figure><figure><img src="assets/images/world-0-future-1.jpg" alt="Middle predicted future frame" width="640" height="480" data-future="1"><figcaption>Next</figcaption></figure><figure><img src="assets/images/world-0-future-2.jpg" alt="Later predicted future frame" width="640" height="480" data-future="2"><figcaption>Further ahead</figcaption></figure></div>
+          </div>
+          <div class="agent-note"><span class="agent-avatar"><svg><use href="#i-agent"/></svg></span><div><b id="adapt-agent-title">Codex prepares and fine-tunes</b><p id="adapt-agent-copy">Prepares the datasets, configures π0.5 fine-tuning and reviews the resulting behavior.</p></div></div>
+        </article>
+
+        <div class="player-toolbar" aria-label="Workflow video controls">
+          <button type="button" class="round-button" id="stage-play" aria-label="Play videos"><svg class="icon"><use href="#i-play"/></svg></button>
+          <button type="button" class="round-button" id="stage-replay" aria-label="Replay this view"><svg class="icon"><use href="#i-replay"/></svg></button>
+          <input type="range" id="stage-progress" min="0" max="1000" value="0" aria-label="Video progress">
+          <span class="player-time" id="stage-time">0:00</span>
+          <button type="button" class="round-button" id="stage-fullscreen" aria-label="Show the current view fullscreen"><svg class="icon"><use href="#i-fullscreen"/></svg></button>
+        </div>
+        <p class="media-message" id="media-message" role="status" hidden></p>
+      </div>
+
+      <div class="workflow-bottom"><p><span class="status-dot"></span><span id="workflow-position">Real observations</span></p><div><button type="button" class="text-button" id="previous-step">Previous</button><button type="button" class="button button-secondary button-small" id="next-step">Next: reconstruct <svg class="icon"><use href="#i-arrow"/></svg></button></div></div>
+      <noscript><p class="noscript-note">Enable JavaScript to explore the interactive steps, or <a href="assets/media/overview.mp4">watch the complete 50-second film</a>.</p></noscript>
+    </section>
+
+    <section class="perspective wrap" id="about" aria-labelledby="perspective-title"><span class="perspective-icon"><svg><use href="#i-agent"/></svg></span><div><p class="eyebrow">What connects the pieces?</p><h2 id="perspective-title">The agent helps develop the workflow.</h2><p>Codex constructs environments, writes and checks code, prepares data and runs learning experiments. The researcher guides the task and reviews the results as the work moves from one experiment to the next.</p></div><button type="button" class="button button-secondary" data-open-film><svg class="icon"><use href="#i-play"/></svg> Watch it come together</button></section>
+  </main>
+
+  <footer class="site-footer wrap"><div><b>Fan Zhang · Michael Gienger</b><p>Honda Research Institute Europe</p><p><a href="https://github.com/fan6zh/agenticrobot" target="_blank" rel="noopener noreferrer">Website source on GitHub</a></p></div><div><a href="assets/media/overview.mp4" download="agents-for-robot-learning.mp4">Download the film <svg class="icon"><use href="#i-download"/></svg></a><p>Workflow presentation inspired by <a href="https://robosimstudio.github.io/" target="_blank" rel="noopener noreferrer">RoboSimStudio</a>.</p></div></footer>
+
+  <dialog class="film-dialog" id="film-dialog" aria-labelledby="film-title"><div class="film-heading"><h2 id="film-title">The 50-second story</h2><button type="button" class="round-button" id="close-film" aria-label="Close the film"><svg class="icon"><use href="#i-close"/></svg></button></div><video id="overview-film" data-src="assets/media/overview.mp4" poster="assets/images/overview.jpg" controls muted playsinline preload="none" aria-label="Complete 50-second research workflow"></video></dialog>
+</body>
+</html>
