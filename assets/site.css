@@ -140,6 +140,39 @@ h1 span{color:var(--teal)}
 .workflow-bottom>div{display:flex;align-items:center;gap:21px}
 .workflow-bottom .text-button{font-weight:400;font-size:12px}
 
+.weight-space{margin-top:72px;scroll-margin-top:28px}
+.weight-heading{max-width:740px;margin-bottom:27px}
+.weight-heading h2{font-size:34px;line-height:1.2;letter-spacing:-1px;margin:10px 0 14px}
+.weight-heading>p:last-child{font-size:15px;line-height:1.8;color:var(--muted);text-wrap:pretty}
+.weight-board{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;box-shadow:0 12px 40px #183b3505}
+.weight-film{min-width:0;background:#f4f7f4;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.weight-film video{width:100%;height:auto;aspect-ratio:996/684;background:#fff}
+.weight-film figcaption{padding:15px 22px;font-size:11px;line-height:1.7;color:var(--muted);border-top:1px solid var(--line);background:#fcfdfb}
+.weight-results{padding:30px 28px;align-self:center;min-width:0}
+.weight-results>.eyebrow{font-size:9px;letter-spacing:1.2px;line-height:1.8}
+.weight-results h3{font-size:25px;line-height:1.3;letter-spacing:-.55px;margin:10px 0 24px;text-wrap:balance}
+.weight-columns{text-align:right;font-size:10px;color:var(--muted);letter-spacing:.2px}
+.weight-columns>span{padding-inline:7px}
+.weight-metrics{margin:9px 0 0}
+.weight-metrics>div{border-bottom:1px solid var(--line);padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.weight-metrics dt{font-size:13px;line-height:1.5}
+.weight-metrics dd{display:flex;align-items:center;gap:12px;margin:0;font-size:25px;letter-spacing:-.6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.weight-metrics dd>span:first-child{color:#78898d}
+.weight-metrics .weight-arrow{font-size:18px;color:#a0b4b3}
+.weight-metrics strong{color:var(--teal)}
+.weight-edit-facts{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:20px;font-size:11px;color:var(--muted)}
+.weight-edit-facts b{color:var(--ink);font-size:14px;margin-right:3px}
+.weight-edit-facts>p{display:flex;align-items:center;gap:5px}
+.weight-context{font-size:11px;line-height:1.8;color:var(--muted);margin-top:19px}
+.weight-method{margin-top:15px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.weight-method summary{padding:14px 3px;cursor:pointer;color:var(--ink);font-weight:700;line-height:1.6}
+.weight-method summary:hover{color:var(--teal)}
+.weight-method summary:focus-visible{outline:3px solid #119799;outline-offset:3px;border-radius:3px}
+.weight-method>div{max-width:850px;padding:0 3px 18px;line-height:1.9}
+@media(max-width:1050px){.weight-results{padding:24px 22px}.weight-results h3{font-size:22px;margin-bottom:18px}.weight-metrics>div{gap:9px;padding-block:13px}.weight-metrics dt{font-size:12px}.weight-metrics dd{font-size:23px;gap:8px}.weight-edit-facts{gap:10px 14px}}
+@media(max-width:700px){.weight-space{margin-top:48px}.weight-heading{margin-bottom:21px}.weight-heading h2{font-size:28px;letter-spacing:-.7px}.weight-heading>.eyebrow{font-size:9px;letter-spacing:1.2px}.weight-heading>p:last-child{font-size:13px;line-height:1.75}.weight-board{grid-template-columns:minmax(0,1fr);border-radius:15px}.weight-film{border-right:0;border-bottom:1px solid var(--line)}.weight-film figcaption{padding:12px 17px;font-size:10px}.weight-results{padding:24px 20px}.weight-results h3{font-size:24px;max-width:300px}.weight-metrics dt{font-size:13px}.weight-metrics dd{font-size:26px;gap:13px}.weight-context{font-size:11px}.weight-method{font-size:11px}.weight-method summary{padding-block:13px}}
+@media(prefers-reduced-motion:no-preference){.weight-method[open]>div{animation:arrive .2s ease-out}}
+
 .site-footer{margin-top:48px;border-top:1px solid var(--line);padding-block:25px 32px;display:flex;justify-content:space-between;gap:28px;font-size:11px;color:var(--muted);line-height:1.8}
 .site-footer b{font-weight:700;color:#4e6870}
 .site-footer p{margin-top:3px}

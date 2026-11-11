@@ -46,6 +46,7 @@
     </a>
     <nav class="site-nav" aria-label="Page navigation">
       <a href="#workflow">Explore</a>
+      <a href="#weight-space">Weight-space programming</a>
       <button type="button" class="text-button" data-open-film>Watch the film <svg class="icon"><use href="#i-play"/></svg></button>
     </nav>
   </header>
@@ -171,6 +172,38 @@
 
       <div class="workflow-bottom"><p><span class="status-dot"></span><span id="workflow-position">Real observations</span></p><div><button type="button" class="text-button" id="previous-step">Previous</button><button type="button" class="button button-secondary button-small" id="next-step">Next: reconstruct <svg class="icon"><use href="#i-arrow"/></svg></button></div></div>
       <noscript><p class="noscript-note">Enable JavaScript to explore the interactive steps, or <a href="assets/media/overview.mp4">watch the complete 50-second film</a>.</p></noscript>
+    </section>
+
+    <section class="weight-space wrap" id="weight-space" aria-labelledby="weight-space-title">
+      <div class="weight-heading">
+        <p class="eyebrow">Direct policy editing</p>
+        <h2 id="weight-space-title">Weight-space programming.</h2>
+        <p>We explored direct weight edits in both our trained SAC controller and π0.5, using saved observations and simulation to check their effects.</p>
+      </div>
+
+      <div class="weight-board">
+        <figure class="weight-film">
+          <video id="weight-comparison" src="assets/media/weight-space-sac.mp4" poster="assets/images/weight-space-sac.jpg" width="996" height="684" controls muted playsinline preload="metadata" aria-label="SAC weight editing: before and after in the same simulated vial scene" aria-describedby="weight-film-caption"></video>
+          <figcaption id="weight-film-caption">One matched scene, before and after a direct SAC weight edit. Playback speeds are labeled in the video.</figcaption>
+        </figure>
+
+        <div class="weight-results">
+          <p class="eyebrow">SAC · controlled simulation adaptation</p>
+          <h3>Vial placement, before and after.</h3>
+          <p class="weight-columns">Original <span aria-hidden="true">→</span> Edited</p>
+          <dl class="weight-metrics">
+            <div><dt>Complete placements</dt><dd><span>0/6</span><span class="weight-arrow" aria-label="to">→</span><strong>3/6</strong></dd></div>
+            <div><dt>Strict lifts</dt><dd><span>0/6</span><span class="weight-arrow" aria-label="to">→</span><strong>4/6</strong></dd></div>
+          </dl>
+          <div class="weight-edit-facts"><p><b>9,600</b> weights edited</p><p><span class="status-dot" aria-hidden="true"></span>No additional training</p></div>
+          <p class="weight-context">Six matched scenes under the same controlled visual-input perturbation. The edit restored the nominal placement score of 3/6.</p>
+        </div>
+      </div>
+
+      <details class="weight-method">
+        <summary>What changed in the SAC weights?</summary>
+        <div><p>Using the known RGB channel gains, we rescaled the first convolution’s input-channel weights in the lifting and perception networks to compensate for the input perturbation. Biases stayed fixed. The edited controller then ran directly in simulation, without an optimizer or an inverse image transform at runtime.</p></div>
+      </details>
     </section>
   </main>
 
