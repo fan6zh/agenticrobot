@@ -12,6 +12,8 @@ Choose any of the five workflow steps. Compare MuJoCo and Blender with the appea
 
 The separate [Weight-space programming](https://fan6zh.github.io/agenticrobot/#weight-space) section introduces direct editing experiments with SAC and π0.5. It presents a saved SAC before/after video and SAC results: 0/6 → 3/6 complete placements and 0/6 → 4/6 strict lifts across six matched scenes. The analytic edit changed 9,600 first-convolution weights to compensate for known RGB input gains, without additional training. It restored the nominal placement score of 3/6. The section does not report π0.5 outcomes.
 
+The SAC comparison automatically plays muted and loops while in view. Native controls remain available; manual pause and reduced-motion preferences are respected.
+
 The site uses plain HTML, CSS and JavaScript. All images, fonts and 15 videos are local assets. No installation, build process, account or API key is needed to view it. Open `index.html` directly or serve this directory with a static web server.
 
 ## GitHub Pages

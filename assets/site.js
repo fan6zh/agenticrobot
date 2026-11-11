@@ -310,6 +310,31 @@
     if (document.hidden && playing) { resumeWhenVisible = true; pause(); }
     else if (!document.hidden && visible && resumeWhenVisible && !userPaused && !dialog.open) { resumeWhenVisible = false; play(); }
   });
+
+  const weightComparison = $('#weight-comparison');
+  if (weightComparison) {
+    let comparisonVisible = false, comparisonUserPaused = false;
+    const comparisonCanAutoplay = () => comparisonVisible && !document.hidden && !dialog.open && !reduceMotion.matches;
+    function updateComparisonPlayback() {
+      if (!comparisonCanAutoplay()) weightComparison.pause();
+      else if (!comparisonUserPaused) weightComparison.play().catch(() => {});
+    }
+    weightComparison.addEventListener('pause', () => {
+      if (comparisonCanAutoplay() && !weightComparison.ended) comparisonUserPaused = true;
+    });
+    weightComparison.addEventListener('play', () => {
+      comparisonUserPaused = false;
+      if (!comparisonVisible || document.hidden || dialog.open) weightComparison.pause();
+    });
+    new IntersectionObserver(entries => {
+      comparisonVisible = entries[0].isIntersecting && entries[0].intersectionRatio >= .25;
+      updateComparisonPlayback();
+    }, { threshold: .25 }).observe(weightComparison);
+    document.addEventListener('visibilitychange', updateComparisonPlayback);
+    reduceMotion.addEventListener('change', updateComparisonPlayback);
+    new MutationObserver(updateComparisonPlayback).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+  }
+
   window.addEventListener('popstate', route);
   window.addEventListener('hashchange', route);
   route();
